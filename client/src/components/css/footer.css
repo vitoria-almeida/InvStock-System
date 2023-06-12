@@ -1,0 +1,11 @@
+footer {
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+footer h4 {
+    font-weight: 400;
+}

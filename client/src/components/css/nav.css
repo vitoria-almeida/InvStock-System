@@ -1,0 +1,20 @@
+nav {
+    background-color: var(--primary-color);
+    width: 20%;
+    color: white;
+}
+
+nav .li {
+    display: flex;
+    margin: 20px 0;
+    text-decoration: none;
+}
+
+nav .li img {
+    width: 20px;
+    margin: 0 10px;
+}
+
+nav .li p {
+    color: white;
+}

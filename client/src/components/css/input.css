@@ -1,0 +1,24 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input label {
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.input input {
+    width: 100%;
+    padding: 10px 5px;
+    border-radius: 1px 3px 3px 1px;
+    border: none;
+    box-shadow: 1px 2px 2px rgb(195, 195, 195);
+    margin: 10px 0;
+}
+
+.input input::placeholder{
+    color: #B6B6B6;
+}

@@ -1,12 +1,18 @@
+import { Routes, Route } from "react-router-dom"
+import Home from "./components/home/Home"
+import Login from "./components/login/Login"
+import Cadastro from "./components/login/Cadastro"
+
 function App() {
-  const renderTitulo = () => {
-    return <h1>Renderizando Título</h1>
-  }
-  return (<>
+  return (
       <div>
-        {renderTitulo()}
+        <Routes>
+          <Route path='/*' element={<Home/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/cadastro' element={<Cadastro/>}></Route>
+        </Routes>
       </div>
-  </>)
+  )
 }
 
 export default App

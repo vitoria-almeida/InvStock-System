@@ -1,0 +1,25 @@
+.formLayout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formLayout .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light);
+    height: 60vh;
+    width: 600px;
+    box-shadow: 3px 3px 4px rgb(195, 195, 195);
+}
+
+.formLayout .content section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}

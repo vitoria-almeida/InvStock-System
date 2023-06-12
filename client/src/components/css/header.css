@@ -1,0 +1,19 @@
+.header {
+    background-color: var(--light-gray); 
+    padding: 0 30px;  
+}
+
+.header ul {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    list-style: none;
+}
+
+.header ul .logo img {
+    width: 90px;
+}
+
+.header ul .logoff img {
+    width: 30px;
+}
