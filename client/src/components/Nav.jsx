@@ -1,8 +1,8 @@
-import './css/nav.css'
+import '../css/nav.css'
+import {Link} from 'react-router-dom'
 import IconPerfil from '../assets/icon_prof.png'
 import IconMovimentacao from '../assets/icon_mov.png'
 import IconEstoque from '../assets/icon_inv.png'
-import {Link} from 'react-router-dom'
 
 function Nav() {
     return (

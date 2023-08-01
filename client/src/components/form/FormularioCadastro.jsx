@@ -1,7 +1,8 @@
-import Input from "./Input"
-import Button from "./Button"
-import { Link } from "react-router-dom"
 import '../../css/formulario.css'
+import { Link } from 'react-router-dom'
+import Input from './Input'
+import Button from './Button'
+
 
 function FormularioCadastro() {
     return (

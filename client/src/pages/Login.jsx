@@ -1,16 +1,16 @@
 import '../css/formLayout.css'
-import Banner from './form/Banner'
-import FormularioCadastro from "./form/FormularioCadastro"
+import Banner from '../components/Banner'
+import FormularioLogin from "../components/form/FormularioLogin"
 
-function Cadastro() {
+function Login() {
     return (
         <div className='formLayout'>
             <div className='content'>
                 <section><Banner/></section>
-                <section><FormularioCadastro/></section>
+                <section><FormularioLogin/></section>
             </div>
         </div>       
-    )
+    ) 
 }
 
-export default Cadastro
+export default Login

@@ -1,6 +1,6 @@
-import Logo from '../../../assets/logo.png'
-import ImagemLogin from '../../../assets/loginImage.png'
-import '../../css/banner.css'
+import '../css/banner.css'
+import Logo from '../assets/logo.png'
+import ImagemLogin from '../assets/loginImage.png'
 
 function Banner() {
     return ( 

@@ -1,7 +1,7 @@
-import { Routes, Route } from "react-router-dom"
-import Home from "./components/home/Home"
-import Login from "./components/login/Login"
-import Cadastro from "./components/login/Cadastro"
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Cadastro from './pages/Cadastro'
 
 function App() {
   return (

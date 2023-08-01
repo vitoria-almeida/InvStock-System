@@ -1,12 +1,12 @@
 import '../css/home.css'
 import { Route, Routes } from "react-router-dom"
-import Estoque from './pages/Estoque'
-import Footer from "../Footer"
-import Header from "../Header"
-import Main from './pages/Main'
-import Movimentacao from './pages/Movimentacao'
-import Nav from "../Nav"
-import Perfil from "./pages/Perfil"
+import Estoque from './Estoque'
+import Movimentacao from './Movimentacao'
+import Perfil from './Perfil'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Main from '../components/Main'
+import Nav from '../components/Nav'
 
 function Home() {
     return (<>
