@@ -1,6 +1,6 @@
 import '../../css/formulario.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Input from './Input'
 import Button from './Button'
@@ -14,6 +14,8 @@ function FormularioCadastro() {
         password: '',
         confirmPassword: ''
     })
+
+    const navigate = useNavigate()
     
     function formSubmit(e) {
         e.preventDefault()
@@ -31,6 +33,7 @@ function FormularioCadastro() {
                 password: '',
                 confirmPassword: ''
             })
+            navigate('/login')
         })
     }
 
