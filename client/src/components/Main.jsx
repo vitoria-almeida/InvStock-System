@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react'
 import '../css/main.css'
 
 function Main() {
     return (
         <section className='main'>
-            Seja Bem Vindo, Nome_da_Empresa
+            <h1>Seja Bem Vindo, nome da empresa</h1>
         </section>
     )
 }

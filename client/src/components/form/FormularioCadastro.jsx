@@ -26,6 +26,7 @@ function FormularioCadastro() {
             confirmPassword: formData.confirmPassword
         })
         .then (res => {
+            console.log(res.status)
             console.log(res.data)
             setFormData({
                 name: '',
@@ -51,7 +52,7 @@ function FormularioCadastro() {
             <Input text='Senha' type='password' id='password' name='password' placeholder='senha' required value={formData.password} handleOnChange={(e)=>{handleForm(e)}}/>
             <Input text='Confirme a senha' type='password' id='confirmPassword' name='confirmPassword' placeholder='confirme a senha' required value={formData.confirmPassword} handleOnChange={(e)=>{handleForm(e)}}/>
             <Button text='CADASTRAR'/>
-            <Link to='/login'>Já possui uma conta?</Link>
+            <h4><Link to='/login'>Já possui uma conta?</Link></h4>
         </form>
     )
 }

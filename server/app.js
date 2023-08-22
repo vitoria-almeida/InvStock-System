@@ -9,6 +9,9 @@ app.use(express.json())
 const AuthRegisterUserRoutes = require('./routes/AuthRegisterUserRoutes')
 app.use(AuthRegisterUserRoutes)
 
+const LoginRoutes = require('./routes/LoginRoutes')
+app.use(LoginRoutes)
+
 const port = 3000
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
