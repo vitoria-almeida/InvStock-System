@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 module.exports = class LoginController {
     static async login(req, res) {
-        const {email, password, name} = req.body
+        const {email, password} = req.body
 
         if(!email) {
             return res.status(422).json({message: 'O email é obrigatório.'})
@@ -41,4 +41,15 @@ module.exports = class LoginController {
             res.status(500).json({message: 'Não foi possível realizar a autenticação.'})
         }
     }
+
+    // static async getUserById(req, res) {
+    //     const id = req.params.id
+    //     const user = await User.findById(id, '-password')
+        
+    //     if(!user) {
+    //         return res.status(404).json({message: 'Usuário não encontrado.'})
+    //     }
+
+    //     res.status(200).json({user})
+    // }
 }

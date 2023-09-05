@@ -4,9 +4,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import Input from './Input'
 import Button from './Button'
+import { useAuth } from '../../hooks/useTokenContext'
 
-function FormularioLogin() {
-    const url = 'http://localhost:3000/auth/login'
+const FormularioLogin = () => {
+    const url = 'http://localhost:3000/auth/login'  
 
     const [formData, setFormData] = useState({
         email: '',
@@ -15,20 +16,22 @@ function FormularioLogin() {
 
     const navigate = useNavigate()
 
+    const { setAuth } = useAuth()
+
     function formSubmit(e) {
         e.preventDefault()
         axios.post(url, {
             email: formData.email,
-            password: formData.password
-        })
+            password: formData.password          
+        })       
         .then (res => {
-            console.log(res.status)
             console.log(res.data)
+            setAuth(res.data.token)
             setFormData({
                 email: '',
                 password: ''
-            })
-            navigate('/')
+            })           
+            navigate('/')           
         })
     }
 
