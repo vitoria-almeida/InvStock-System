@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASSWORD
 
-const connect = () => {
-    mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.lbawnah.mongodb.net/test?retryWrites=true&w=majority`)
+const connectDB = () => {
+    mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.lbawnah.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
     const connection = mongoose.connection
 
     connection.on('error', () => {
@@ -14,6 +14,5 @@ const connect = () => {
         console.log('Successfully connected on MongoDB')
     })
 }
-connect()
 
-module.exports = mongoose;
+module.exports = connectDB;

@@ -6,15 +6,16 @@ const app = express()
 app.use(cors()) 
 app.use(express.json())
 
-const AuthRegisterUserRoutes = require('./routes/AuthRegisterUserRoutes')
-app.use(AuthRegisterUserRoutes)
-
 const LoginRoutes = require('./routes/LoginRoutes')
 app.use(LoginRoutes)
+
+const AuthRegisterUserRoutes = require('./routes/AuthRegisterUserRoutes')
+app.use(AuthRegisterUserRoutes)
 
 const port = 3000
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
 })
 
-require('./database/connection')
+const connectDB = require('./database/connection')
+connectDB()
