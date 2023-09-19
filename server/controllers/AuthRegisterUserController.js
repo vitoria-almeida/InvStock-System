@@ -63,11 +63,56 @@ module.exports = class AuthRegisterUserController {
         }
 
         const user = await User.findById(id, '-password')  
-           
+
         if(!user) {
             return res.status(400).json({message: 'Usuário não encontrado'})
         }
 
         res.status(200).json({user})
+    }
+
+    static async updateUser(req, res) {
+        //pega os campos do usuário e verifica se ao menos um foi fornecido;
+        const { name, email, password, confirmPassword } = req.body
+        if(!name && !email && !password && !confirmPassword) {
+            return res.status(422).json({message: 'Preencha ao menos um item a ser atualizado'})
+        }
+
+        //pega o id do usuário a partir do parametro de rota e verifican se o ID é válido
+        const id = req.params.id
+        if(!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({message: 'ID Inválido'})
+        }
+
+        try {
+            //pega o usuário e verifica se ele existe a partir de seu ID
+            const user = await User.findById(id,'-password')
+            if(!user) {
+                return res.status(400).json({message: 'Usuário não encontrado'})
+            }
+
+            //atualiza campos de usuário APENAS se eles forem fornecidos
+            if (name) {
+                user.name = name
+            } 
+            if (email) {
+                user.email = email
+            } 
+            if (password && confirmPassword) {
+                if (password !== confirmPassword) {
+                    return res.status(422).json({ message: 'As senhas não coincidem' })
+                }
+                const hash = await bcrypt.genSalt(12)
+                const hashPassword = await bcrypt.hash(password, hash)
+                user.password = hashPassword;
+            }
+
+            //salva alterações
+            await user.save()
+
+            res.status(201).json({message: 'Usuário atualizado com sucesso!', user})
+        } catch(error) {
+            res.status(500).json({message: 'Ocorreu um erro ao tentar atualizar o usuário, tente novamente.'})
+        }
     }
 }
