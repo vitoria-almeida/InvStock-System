@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt')
-const mongoose = require('mongoose')
 const User = require('../models/User')
 
 module.exports = class AuthRegisterUserController {
@@ -57,41 +56,19 @@ module.exports = class AuthRegisterUserController {
     }
 
     static async getUserById(req, res) {
-        const id = req.params.id
-        if(!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).json({message: 'ID Inválido'})
-        }
-
-        const user = await User.findById(id, '-password')  
-
-        if(!user) {
-            return res.status(400).json({message: 'Usuário não encontrado'})
-        }
-
+        const user = req.user
         res.status(200).json({user})
     }
 
     static async updateUser(req, res) {
-        //pega os campos do usuário e verifica se ao menos um foi fornecido;
         const { name, email, password, confirmPassword } = req.body
         if(!name && !email && !password && !confirmPassword) {
             return res.status(422).json({message: 'Preencha ao menos um item a ser atualizado'})
         }
 
-        //pega o id do usuário a partir do parametro de rota e verifican se o ID é válido
-        const id = req.params.id
-        if(!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).json({message: 'ID Inválido'})
-        }
-
         try {
-            //pega o usuário e verifica se ele existe a partir de seu ID
-            const user = await User.findById(id,'-password')
-            if(!user) {
-                return res.status(400).json({message: 'Usuário não encontrado'})
-            }
+            const user = req.user
 
-            //atualiza campos de usuário APENAS se eles forem fornecidos
             if (name) {
                 user.name = name
             } 
@@ -107,7 +84,6 @@ module.exports = class AuthRegisterUserController {
                 user.password = hashPassword;
             }
 
-            //salva alterações
             await user.save()
 
             res.status(201).json({message: 'Usuário atualizado com sucesso!', user})
