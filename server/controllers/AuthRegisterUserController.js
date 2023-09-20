@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt')
-const User = require('../models/User')
+import bcrypt from 'bcrypt'
+import User from '../models/User.js'
 
-module.exports = class AuthRegisterUserController {
+class AuthRegisterUserController {
     static async init(req, res) {
         res.send({message:'Bem vindo à API'})
     } 
@@ -100,3 +100,5 @@ module.exports = class AuthRegisterUserController {
         }
     }
 }
+
+export default AuthRegisterUserController
