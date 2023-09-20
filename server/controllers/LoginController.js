@@ -1,8 +1,8 @@
-const User = require('../models/User')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import User from '../models/User.js'
 
-module.exports = class LoginController {
+class LoginController {
     static async login(req, res) {
         const {email, password} = req.body
 
@@ -42,3 +42,5 @@ module.exports = class LoginController {
         }
     }
 }
+
+export default LoginController

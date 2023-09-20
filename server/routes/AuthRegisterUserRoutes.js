@@ -1,6 +1,7 @@
-const router = require('express').Router()
-const AuthRegisterUserController = require('../controllers/AuthRegisterUserController')
-const { validId, validUser } = require('../middlewares/GlobalMiddlewares')
+import express from 'express'
+const router = express.Router()
+import AuthRegisterUserController from '../controllers/AuthRegisterUserController.js'
+import { validId, validUser } from '../middlewares/GlobalMiddlewares.js'
 
 router.get('/', AuthRegisterUserController.init)
 router.post('/auth/register/user', AuthRegisterUserController.registerUser)
@@ -8,4 +9,4 @@ router.get('/auth/users', AuthRegisterUserController.findAllUsers)
 router.get('/auth/user/:id', validId, validUser, AuthRegisterUserController.getUserById)
 router.patch('/auth/user/:id', validId, validUser, AuthRegisterUserController.updateUser)
 
-module.exports = router
+export default router

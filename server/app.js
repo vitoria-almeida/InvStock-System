@@ -1,15 +1,16 @@
-const express = require('express')
-const cors = require('cors')
-require('dotenv').config()
+import express from 'express'
+import cors from 'cors'
+import 'dotenv/config.js'
+
 
 const app = express()
 app.use(cors()) 
 app.use(express.json())
 
-const LoginRoutes = require('./routes/LoginRoutes')
+import LoginRoutes from './routes/LoginRoutes.js'
 app.use(LoginRoutes)
 
-const AuthRegisterUserRoutes = require('./routes/AuthRegisterUserRoutes')
+import AuthRegisterUserRoutes from './routes/AuthRegisterUserRoutes.js'
 app.use(AuthRegisterUserRoutes)
 
 const port = 3000
@@ -17,5 +18,5 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`)
 })
 
-const connectDB = require('./database/connection')
+import connectDB from './database/connection.js'
 connectDB()
