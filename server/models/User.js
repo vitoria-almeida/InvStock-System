@@ -5,7 +5,7 @@ const User = mongoose.model('User', {
         type: String,
         required: [true, "É necessário colocar um nome!"],
         set: (value) => {
-            return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+            return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
         }
     },
     email: {
