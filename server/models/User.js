@@ -8,11 +8,12 @@ const User = mongoose.model('User', {
     email: {
         type: String,
         required: [true, "É necessário colocar um email!"],
-        unique: [true, "Email Exist"]
+        unique: [true, "Esse email já está cadastrado"]
     },
     password: {
         type: String,
         required: [true, "É necessário colocar uma senha!"],
+        select: false
     }
 })
 
