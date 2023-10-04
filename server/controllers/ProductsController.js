@@ -3,8 +3,6 @@ import Product from "../models/Product.js"
 class ProductsController {
     static async createProduct(req, res) {
         try {
-            //o id do usuário é um dos componentes do token gerado no login, 
-            //portanto é desse token que retornamos no login que devemos pegar o id do usuário
             const { productName, quantity, price, sellingPrice } = req.body
 
             if(!productName) {
@@ -38,8 +36,13 @@ class ProductsController {
 
     static async findAllProducts(req, res) {
         try {
-            const products = []
-            res.status(200).json({products})         
+            const allProducts = await Product.find()
+
+            if(allProducts.length === 0) {
+                return res.status(400).json({message: 'Não há produtos registrados'})
+            }
+
+            res.status(200).json({allProducts})         
         } catch(error) {
             res.status(500).json({message: error.message})
         }
