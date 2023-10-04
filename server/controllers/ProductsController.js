@@ -1,4 +1,4 @@
-import Product from "../models/Product"
+import Product from "../models/Product.js"
 
 class ProductsController {
     static async createProduct(req, res) {
@@ -45,3 +45,5 @@ class ProductsController {
         }
     }
 } 
+
+export default ProductsController
