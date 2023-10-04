@@ -9,7 +9,7 @@ const Product = mongoose.model('Product', {
             return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
         }
     },
-    quantidade: {
+    quantity: {
         type: Number,
         required: [true, "É necessário preencher o valor!"]
     },

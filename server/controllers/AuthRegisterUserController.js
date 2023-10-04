@@ -6,7 +6,7 @@ class AuthRegisterUserController {
         res.send({message:'Bem vindo à API'})
     } 
 
-    static async registerUser(req, res) {
+    static async registerUser(req, res) { 
         try {
             const { name, email, password, confirmPassword } = req.body
 
