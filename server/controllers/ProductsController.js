@@ -25,7 +25,7 @@ class ProductsController {
                 quantity, 
                 price, 
                 sellingPrice,
-                id: 'id Fake 1'
+                userId: { _id: '64cbbcc309dc403c64b6ac37' }
             })
 
             await product.save()

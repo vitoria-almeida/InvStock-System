@@ -25,7 +25,7 @@ const Product = mongoose.model('Product', {
         type: Date,
         default: Date.now
     },
-    user: {
+    userId: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
         required: true
