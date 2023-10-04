@@ -25,7 +25,7 @@ class ProductsController {
                 quantity, 
                 price, 
                 sellingPrice,
-                userId: { _id: '64cbbcc309dc403c64b6ac37' }
+                userId: { _id: "64cbbcc309dc403c64b6ac37" }
             })
 
             await product.save()
