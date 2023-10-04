@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Nav from '../components/Nav'
+import Produtos from './Produtos'
 
 function Home() {
     return (<>
@@ -16,6 +17,7 @@ function Home() {
                 <Routes>
                     <Route path='/*' element={<Main/>}></Route>
                     <Route path='/perfil' element={<Perfil/>}></Route>
+                    <Route path='/produtos' element={<Produtos/>}></Route>
                     <Route path='/movimentacao' element={<Movimentacao/>}></Route>
                     <Route path='/estoque' element={<Estoque/>}></Route>
                 </Routes>

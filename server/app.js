@@ -15,6 +15,9 @@ app.use(AuthRegisterUserRoutes)
 import LoginRoutes from './routes/LoginRoutes.js'
 app.use(LoginRoutes)
 
+import ProductsRoutes from './routes/ProductsRoutes.js'
+app.use(ProductsRoutes)
+
 const port = 3000
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
