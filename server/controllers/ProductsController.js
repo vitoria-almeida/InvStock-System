@@ -93,6 +93,34 @@ class ProductsController {
             res.status(500).json({message: error.message})
         }
     }
+
+    static async searchByName(req, res) {
+        try {
+            const {productName} = req.query
+
+            const productsName = await Product.find({
+                productName: {$regex: `${productName || ''}`, $options: 'i'}
+            }).populate('userId')
+
+            if(!productsName.length === 0) {
+                return res.status(400).json({message: 'Não há produtos com esse nome'})
+            }
+
+            return res.status(200).json({
+                results: productsName.map(item => ({
+                    id: item._id,
+                    name: item.productName,
+                    quantity: item.quantity,
+                    price: item.price,
+                    selling: item.sellingPrice,
+                    date: item.createdAt,
+                    user: item.userId
+                }))
+            })         
+        } catch(error) {
+            res.status(500).json({message: error.message})
+        }
+    }
 } 
 
 export default ProductsController
