@@ -18,6 +18,9 @@ app.use(LoginRoutes)
 import ProductsRoutes from './routes/ProductsRoutes.js'
 app.use(ProductsRoutes)
 
+// import SwaggerRoutes from './routes/SwaggerRoutes.js'
+// app.use(SwaggerRoutes)
+
 const port = 3000
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
